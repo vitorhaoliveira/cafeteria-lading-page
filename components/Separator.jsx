@@ -1,10 +1,16 @@
+import Image from "next/image";
 
-function Separator () {
+function Separator({ bg = "accent" }) {
+  const imgSrc =
+    bg === "accent"
+      ? "/assets/separator-accent.svg"
+      : "/assets/separator-white.svg";
+
   return (
-    <div>
-      separator
+    <div className="relative w-[168px] h-[26px] mx-auto">
+      <Image src={imgSrc} fill alt="" />
     </div>
-  )
+  );
 }
 
 export default Separator;

@@ -1,9 +1,17 @@
-import React from 'react'
+import Image from "next/image";
+import React from "react";
 
-function Badge() {
+function Badge({ containerStyles }) {
   return (
-    <div>Badge</div>
-  )
+    <div className={`relative ${containerStyles}`}>
+      <Image
+        src="/assets/badge.svg"
+        fill
+        alt=""
+        className="object-container"
+      />
+    </div>
+  );
 }
 
-export default Badge
+export default Badge;
