@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 
 const links = [
   { href: "/", name: "Inicio" },
@@ -9,10 +9,46 @@ const links = [
   { href: "/", name: "Contato" },
 ];
 
+const letterAnim = {
+  initial: {
+    y: "100%",
+    opacity: 0,
+  },
+  enter: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: "1",
+      ease: [0.75, 0, 0.23, 1],
+      delay: i[0],
+    },
+  }),
+  exit: (i) => ({
+    y: "100%",
+    opacity: 0,
+    transition: {
+      duration: 1,
+      ease: [0.75, 0, 0.23, 1],
+      delay: i[1],
+    },
+  }),
+};
+
 const getLetter = (name) => {
   let letters = [];
   name.split("").forEach((letter, i) => {
-    letters.push(<span key={i}>{letter}</span>);
+    letters.push(
+      <motion.span
+        variants={letterAnim}
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        custom={[i * 0.03, (name.length - i) * 0.01]}
+        key={i}
+      >
+        {letter}
+      </motion.span>
+    );
   });
   return letters;
 };
@@ -27,7 +63,7 @@ function NavList() {
             key={i}
             className="flex overflow-hidden hover:text-white transition-all"
           >
-            {link.name}
+            {getLetter(link.name)}
           </Link>
         );
       })}
