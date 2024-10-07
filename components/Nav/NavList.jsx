@@ -19,7 +19,7 @@ const letterAnim = {
     opacity: 1,
     transition: {
       duration: "1",
-      ease: [0.75, 0, 0.23, 1],
+      ease: [0.6, 0, 0.2, 1],
       delay: i[0],
     },
   }),
@@ -27,8 +27,8 @@ const letterAnim = {
     y: "100%",
     opacity: 0,
     transition: {
-      duration: 1,
-      ease: [0.75, 0, 0.23, 1],
+      duration: 0.08,
+      ease: [0.6, 0, 0.2, 1],
       delay: i[1],
     },
   }),
@@ -43,7 +43,7 @@ const getLetter = (name) => {
         initial="initial"
         animate="enter"
         exit="exit"
-        custom={[i * 0.03, (name.length - i) * 0.01]}
+        custom={[i * 0.04, (name.length - i) * 0.01]}
         key={i}
       >
         {letter}
