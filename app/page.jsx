@@ -1,7 +1,9 @@
 "use client";
-import Explore from "@/components/Explore";
-import Hero from "@/components/Hero";
 import { useEffect } from "react";
+
+import Hero from "@/components/Hero";
+import Explore from "@/components/Explore";
+import About from "@/components/About";
 
 function Home() {
   useEffect(() => {
@@ -16,6 +18,7 @@ function Home() {
     <main className="h-full overflow-x-hidden ">
       <Hero />
       <Explore />
+      <About />
       <div className="h-[4000px]"></div>
     </main>
   );
