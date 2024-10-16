@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
-// import ScrollTrigger from "gsap-trial/ScrollTrigger";
+import ScrollTrigger from "gsap-trial/ScrollTrigger";
 import Image from "next/image";
 import Badge from "./Badge";
 import Separator from "./Separator";
@@ -31,10 +31,37 @@ function About() {
   const scrollAbleSectionRef = useRef(null);
   const scrollTriggerRef = useRef(null);
 
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const animation = gsap.fromTo(
+      scrollAbleSectionRef.current,
+      { translateX: 0 },
+      {
+        translateX: "-200vw",
+        ease: "none",
+        duration: 1,
+        scrollTrigger: {
+          trigger: scrollTriggerRef.current,
+          start: "top top",
+          end: "1800vw top",
+          scrub: 0.6,
+          pin: true,
+        },
+      }
+    );
+
+    return () => {
+      animation.kill();
+    };
+  }, []);
+
   return (
     <section className="overflow-hidden bg-primary">
       <div ref={scrollTriggerRef}>
-        <div ref={scrollAbleSectionRef}>
+        <div
+          ref={scrollAbleSectionRef}
+          className="h-screen w-[300vw] flex relative"
+        >
           {data.map((item, i) => {
             return (
               <div
@@ -64,7 +91,14 @@ function About() {
                       </div>
                     </div>
                     <div className="hidden xl:flex flex-1 w-full h-[70vh] relative">
-                      <Image src={item} />
+                      <Image
+                        src={item.imgSrc}
+                        fill
+                        className="object-cover"
+                        quality={100}
+                        priority
+                        alt=""
+                      />
                     </div>
                   </div>
                 </div>
