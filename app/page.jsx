@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import Explore from "@/components/Explore";
 import About from "@/components/About";
+import Menu from "@/components/Menu";
 
 function Home() {
   useEffect(() => {
@@ -19,6 +20,7 @@ function Home() {
       <Hero />
       <Explore />
       <About />
+      <Menu />
       <div className="h-[4000px]"></div>
     </main>
   );

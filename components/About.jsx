@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap-trial/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Badge from "./Badge";
 import Separator from "./Separator";
