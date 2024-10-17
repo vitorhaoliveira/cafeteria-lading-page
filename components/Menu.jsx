@@ -83,13 +83,13 @@ function Menu() {
         </div>
       </div>
       <div className="flex flex-col items-center gap-12 xl:gap-24">
-        <div className="w-full grid grid-cols-1 xl:grid-cols-2 gap-y-8 gap-x-16 place-content-center">
+        <div className="w-10/12 grid grid-cols-1 xl:grid-cols-2 gap-y-8 gap-x-16 place-content-center">
           {menuItems.map((item, i) => {
             const { name, description, price, imgSrc } = item;
             return (
               <MenuItem
                 name={name}
-                description={description}
+                description={description}   
                 price={price}
                 imgSrc={imgSrc}
                 key={i}

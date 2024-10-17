@@ -14,6 +14,18 @@ function MenuItem({ imgSrc, name, description, price }) {
           className="object-cover"
         />
       </div>
+      <div className="flex flex-col flex-1 gap-2">
+        <div className="flex justify-between gap-4 items-baseline">
+          <p className="uppercase font-primary font-semibold text-[22px] leading-none text-primary">
+            {name}
+          </p>
+          <div className="flex-1 border-b border-dashed border-primary"></div>
+          <p className="leading-none font-primary font-semibold text-[30px] text-primary">
+            {price}
+          </p>
+        </div>
+        <p>{description}</p>
+      </div>
     </div>
   );
 }
