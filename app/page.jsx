@@ -5,6 +5,8 @@ import Hero from "@/components/Hero";
 import Explore from "@/components/Explore";
 import About from "@/components/About";
 import Menu from "@/components/Menu";
+import Testimonials from "@/components/Testimonials";
+import OpeningHours from "@/components/OpeningHours";
 
 function Home() {
   useEffect(() => {
@@ -21,6 +23,8 @@ function Home() {
       <Explore />
       <About />
       <Menu />
+      <OpeningHours />
+      <Testimonials />
       <div className="h-[4000px]"></div>
     </main>
   );
