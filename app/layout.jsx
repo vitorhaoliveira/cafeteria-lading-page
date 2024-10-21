@@ -23,6 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
+      <title>Coffe & Joy</title>
       <body className={`${cormorant_upright.variable} ${open_sans.variable}`}>
         <Header />
         {children}
